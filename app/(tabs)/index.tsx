@@ -1,98 +1,142 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+// PROPS TİPLERİ
+interface KimlikKartiProps {
+  ad: string;
+  uzmanlik: string;
+  seviye: string;
+  musaitMi: boolean;
+}
 
-export default function HomeScreen() {
+// ADIM 2: Modernize Edilmiş Component
+const KimlikKarti = ({ ad, uzmanlik, seviye, musaitMi }: KimlikKartiProps) => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View style={[styles.card, !musaitMi && styles.cardPassive]}>
+      {/* Durum Göstergesi (Aktif/Pasif Noktası) */}
+      <View
+        style={[
+          styles.statusDot,
+          { backgroundColor: musaitMi ? "#4CAF50" : "#9E9E9E" },
+        ]}
+      />
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+      <Text style={styles.label}>YAZILIMCI KİMLİĞİ</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.name}>{ad}</Text>
+        <Text style={styles.specialty}>{uzmanlik}</Text>
+        <Text style={styles.level}>{seviye}</Text>
+      </View>
+    </View>
+  );
+};
+
+export default function App() {
+  const [musaitMi, setMusaitMi] = useState<boolean>(true);
+
+  return (
+    <View style={styles.container}>
+      <KimlikKarti
+        ad="Alperen"
+        uzmanlik="Full-Stack Developer"
+        seviye="3. Sınıf Yazılım Mühendisi"
+        musaitMi={musaitMi}
+      />
+
+      <TouchableOpacity
+        style={[styles.button, !musaitMi && styles.buttonDisabled]}
+        onPress={() => setMusaitMi(false)}
+        disabled={!musaitMi}
+        activeOpacity={0.7}
+      >
+        <Text style={styles.buttonText}>
+          {musaitMi ? "İşe Al" : "Projelerde Çalışıyor"}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
+// STİLLER (StyleSheet.create)
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: "#F5F7FA",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  card: {
+    width: Dimensions.get("window").width * 0.85,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 15,
+    padding: 25,
+    elevation: 5, // Android gölge
+    shadowColor: "#000", // iOS gölge
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    borderLeftWidth: 5,
+    borderLeftColor: "#2196F3",
+    position: "relative",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  cardPassive: {
+    opacity: 0.7,
+    borderLeftColor: "#9E9E9E",
+    backgroundColor: "#F0F0F0",
+  },
+  statusDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    position: "absolute",
+    top: 15,
+    right: 15,
+  },
+  label: {
+    fontSize: 10,
+    fontWeight: "bold",
+    color: "#9E9E9E",
+    marginBottom: 10,
+    letterSpacing: 1,
+  },
+  infoContainer: {
+    gap: 5,
+  },
+  name: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  specialty: {
+    fontSize: 16,
+    color: "#2196F3",
+    fontWeight: "600",
+  },
+  level: {
+    fontSize: 14,
+    color: "#666",
+    fontStyle: "italic",
+  },
+  button: {
+    marginTop: 30,
+    backgroundColor: "#2196F3",
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 25,
+    elevation: 3,
+  },
+  buttonDisabled: {
+    backgroundColor: "#9E9E9E",
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
