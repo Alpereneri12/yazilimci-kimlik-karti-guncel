@@ -18,13 +18,13 @@ Bu proje, klasik bir "kimlik kartı" uygulamasını dinamik bir oyun mekaniği i
 
 ### 📺 Proje Tanıtım Videosu
 Uygulamanın özelliklerini, oyun mekaniklerini ve UI/UX detaylarını içeren 1 dakikalık tanıtım videosu:
-🔗 **[Tanıtım Videosunu İzle (YouTube Linki Buraya)]**
+🔗 **[https://www.youtube.com/shorts/ha_EXfiHEEc]**
 
 ---
 
 ### 📥 Uygulamayı İndir (APK)
 Android cihazınıza doğrudan kurup denemek için aşağıdaki bağlantıdan güncel build dosyasını indirebilirsiniz:
-🔗 **[DevCard v1.0 APK İndir (EAS Build Linki Buraya)]**
+🔗 **(https://expo.dev/accounts/alpereneri/projects/YazilimciKartiProject/builds/14e85230-de89-440e-9ca9-8ba981775724)**
 
 ---
 
