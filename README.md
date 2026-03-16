@@ -1,50 +1,65 @@
-# Welcome to your Expo app 👋
+# 🚀 DevCard: Career Path RPG
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**DevCard**, bir yazılım mühendisi adayının stajyerlikten (Intern) başlayıp "Software Architect" seviyesine kadar uzanan kariyer yolculuğunu simüle eden, interaktif bir mobil oyunlaştırma projesidir. Proje, teknik bilgiyi stratejik enerji yönetimi ve uzmanlık kazanımıyla harmanlayarak bir "Yazılımcı Hayatta Kalma" simülasyonu sunar.
 
-## Get started
+---
 
-1. Install dependencies
+### 🎯 Projenin Amacı ve Oyunlaştırma Özellikleri
+Bu proje, klasik bir "kimlik kartı" uygulamasını dinamik bir oyun mekaniği ile birleştirerek kullanıcı motivasyonunu artırmayı amaçlar.
 
-   ```bash
-   npm install
-   ```
+* **Kariyer Basamakları (Leveling):** Deneyim kazandıkça unvanınız otomatik olarak güncellenir: `Intern` ➔ `Junior` ➔ `Mid-Level` ➔ `Senior` ➔ `Tech Lead` ➔ `Software Architect`.
+* **Çeşitlendirilmiş Görevler:** `Frontend`, `Backend`, `Mobile` ve `Cyber Security` alanlarında projeler geliştirerek XP kazanın. Her görevin enerji maliyeti ve tecrübe puanı profesyonel zorluk derecesine göre dengelenmiştir.
+* **Master Quiz (Enerji Sistemi):** Enerjiniz tükendiğinde yazılım dünyasından (React, Git, Docker, Siber Güvenlik vb.) gelen 20 farklı teknik soruyu cevaplayarak enerji (+20⚡) depolayın. Yanlış cevaplar enerji kazandırmaz!
+* **Yetenek Dashboard:** Hangi alanda kaç proje tamamladığınızı anlık olarak takip edin.
+* **Uzmanlık Rozetleri (Achievements):** Seviye atladıkça kilitli olan uzmanlık rozetlerini açın ve kariyerinizi taçlandırın.
+* **Haptic Feedback:** Başarılı terfiler ve hatalı cevaplarda fiziksel titreşim geri bildirimi ile zenginleştirilmiş kullanıcı deneyimi.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+### 📺 Proje Tanıtım Videosu
+Uygulamanın özelliklerini, oyun mekaniklerini ve UI/UX detaylarını içeren 1 dakikalık tanıtım videosu:
+🔗 **[Tanıtım Videosunu İzle (YouTube Linki Buraya)]**
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 📥 Uygulamayı İndir (APK)
+Android cihazınıza doğrudan kurup denemek için aşağıdaki bağlantıdan güncel build dosyasını indirebilirsiniz:
+🔗 **[DevCard v1.0 APK İndir (EAS Build Linki Buraya)]**
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+### 🛠️ Kurulum ve Çalıştırma (Installation & Run)
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip edin:
 
-When you're ready, run:
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/Alpereneri12/yazilimci-kimlik-karti-guncel.git](https://github.com/Alpereneri12/yazilimci-kimlik-karti-guncel.git)
+    cd YazilimciKartiProject
+    ```
+2.  **Bağımlılıkları Yükleyin:**
+    ```bash
+    npm install
+    ```
+3.  **Gerekli Expo Paketlerini Ekleyin:**
+    ```bash
+    npx expo install expo-haptics react-native-reanimated
+    ```
+4.  **Uygulamayı Başlatın:**
+    ```bash
+    npx expo start
+    ```
+5.  **Test Etme:** Akıllı telefonunuzdaki **Expo Go** uygulaması ile terminaldeki QR kodu taratarak projeyi anında çalıştırabilirsiniz.
 
-```bash
-npm run reset-project
-```
+---
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 🏗️ Teknik Stack
+* **Framework:** React Native (Expo)
+* **Style:** StyleSheet (Modern Dark UI / Neon Concept)
+* **Animasyon:** React Native Reanimated (Spring Physics)
+* **Geri Bildirim:** Expo Haptics
+* **Deployment:** EAS (Expo Application Services)
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 💡 Geliştirici Notu
+Bu proje, mobil uygulama geliştirme sürecinde **State Management**, **Conditional Rendering** ve **Lifecycle Hooks** kavramlarını oyunlaştırma dinamikleriyle birleştirmek amacıyla geliştirilmiştir. Kullanıcı testleri sonucunda "Quiz" mekanizmasının teknik terim kalıcılığını artırdığı gözlemlenmiştir.
